@@ -688,8 +688,9 @@ async function startServer() {
       }
       if (redisClient && redisClient.isOpen) await redisClient.set('first-aid-all', JSON.stringify(data));
     }
-    if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
-      server.listen(PORT, () => console.log(`NARAYANI server listening on http://localhost:${PORT}`));
+    // Start the server (Required for Render, Railway, Local)
+    if (!process.env.VERCEL) {
+      server.listen(PORT, () => console.log(`NARAYANI server listening on port ${PORT}`));
     }
   } catch (error) {
     console.error('Failed to start server:', error.message);
