@@ -276,76 +276,106 @@ function buildCallerContext(callId, languageCode = 'en') {
 }
 
 async function handleCallerText({ text, callId, sessionId, languageCode = 'en', timestamp }, socket) {
+  console.log(`[Transcription] ${callId}: "${text}"`);
   if (!text || !callId) return;
-  await appendTranscriptEntry(callId, 'caller', text, timestamp);
-  const runtime = getRuntime(callId);
-  runtime.lastVoiceAt = Date.now();
-  if (sessionId) {
-    await Conversation.findOneAndUpdate({ sessionId }, { $push: { messages: { role: 'user', content: text, languageCode, timestamp: new Date() } }, $inc: { 'metadata.totalMessages': 1 } }, { upsert: true, new: true });
-  }
 
-  const responseStartedAt = Date.now();
-  // Pass conversation history so the AI has context of what was said
-  const conversationHistory = runtime.recentCallerTranscripts.slice(-10);
-  const aiResult = await getHumanLikeResponse(text, buildCallerContext(callId, languageCode), conversationHistory);
-  const responseTimeSeconds = Number(((Date.now() - responseStartedAt) / 1000).toFixed(2));
-  const mlSeverity = await predictTranscriptSeverity(text);
-  const voiceScore = Math.max(Number(aiResult.severity || 0), mlSeverity.score);
-
-  // Run classification immediately from transcript so severity box updates without waiting for video
-  const grounding = runtime.lastSnapshot?.grounding || createDefaultSnapshot(callId).grounding;
-  grounding.caller_speech_transcript = text;
-  const classification = forceClassificationIfNeeded(
-    await classificationPass({ grounding, mlSeverity }),
-    grounding,
-    text,
-    runtime
-  );
-  if (isClassificationVisible(classification)) runtime.successfulClassifications += 1;
-
-  // Build and persist updated analysis snapshot
-  const analysis = runtime.lastAnalysis || createDefaultSnapshot(callId).analysis;
-  const latencyMs = runtime.lastSnapshot?.latencyMs || null;
-  const snapshot = buildSnapshot({
-    callId,
-    grounding,
-    classification,
-    analysis,
-    contradictions: runtime.lastSnapshot?.contradictions || [],
-    analysisFresh: false,
-    analysisRevision: `${callId}-voice-${Date.now()}`,
-    latencyMs,
-    runtime,
-  });
-  runtime.lastSnapshot = snapshot;
-
-  await Call.findOneAndUpdate(
-    { callId },
-    {
-      callerLanguage: aiResult['detected language'] || languageCode,
-      emergencyType: isClassificationVisible(classification) ? classification.category : (aiResult['emergency type'] || 'UNKNOWN'),
-      callerEmotion: aiResult['caller emotion'] || 'unknown',
-      backgroundSound: aiResult['background context'] || 'unknown',
-      aiBrainUsed: 'NARAYANI CASCADE',
-      aiBrainResponseTime: responseTimeSeconds,
-      severityScore: Math.max(voiceScore, scoreFromSeverity(classification.severity)),
-      severityLabel: severityLabelFromClassification(classification),
-      mlVotes: mlSeverity.votes,
-      callStatus: isClassificationVisible(classification) ? 'ACTIVE' : (voiceScore > 0 ? 'ACTIVE' : 'ASSESSING'),
-      analysisSnapshot: snapshot,
-      visionAnalysis: { grounding: snapshot.grounding, classification: snapshot.classification, analysis: snapshot.analysis, contradictions: snapshot.contradictions },
+  try {
+    await appendTranscriptEntry(callId, 'caller', text, timestamp);
+    const runtime = getRuntime(callId);
+    runtime.lastVoiceAt = Date.now();
+    
+    if (sessionId) {
+      await Conversation.findOneAndUpdate(
+        { sessionId },
+        { 
+          $push: { messages: { role: 'user', content: text, languageCode, timestamp: new Date() } },
+          $inc: { 'metadata.totalMessages': 1 }
+        },
+        { upsert: true, new: true }
+      );
     }
-  );
 
-  await appendTranscriptEntry(callId, 'assistant', aiResult.response);
-  if (sessionId) {
-    await Conversation.findOneAndUpdate({ sessionId }, { $push: { messages: { role: 'assistant', content: aiResult.response, languageCode: aiResult['detected language'] || languageCode, llmProvider: 'cascade', responseTimeMs: responseTimeSeconds * 1000, timestamp: new Date() } }, $inc: { 'metadata.totalMessages': 1 }, $set: { 'metadata.primaryLanguage': aiResult['detected language'] || languageCode } }, { upsert: true, new: true });
+    const responseStartedAt = Date.now();
+    const conversationHistory = runtime.recentCallerTranscripts.slice(-10);
+    
+    console.log(`[AI Response] Generating for ${callId}...`);
+    const aiResult = await getHumanLikeResponse(text, buildCallerContext(callId, languageCode), conversationHistory);
+    const responseTimeSeconds = Number(((Date.now() - responseStartedAt) / 1000).toFixed(2));
+    console.log(`[AI Response] SUCCESS in ${responseTimeSeconds}s: "${aiResult.response.slice(0, 50)}..."`);
+
+    // --- ML Severity & Classification logic ---
+    const mlSeverity = await predictTranscriptSeverity(text);
+    const voiceScore = Math.max(Number(aiResult.severity || 0), mlSeverity.score);
+
+    const grounding = runtime.lastSnapshot?.grounding || createDefaultSnapshot(callId).grounding;
+    grounding.caller_speech_transcript = text;
+    
+    const classification = forceClassificationIfNeeded(
+      await classificationPass({ grounding, mlSeverity }),
+      grounding,
+      text,
+      runtime
+    );
+    if (isClassificationVisible(classification)) runtime.successfulClassifications += 1;
+
+    const analysis = runtime.lastAnalysis || createDefaultSnapshot(callId).analysis;
+    const latencyMs = runtime.lastSnapshot?.latencyMs || null;
+    const snapshot = buildSnapshot({
+      callId, grounding, classification, analysis,
+      contradictions: runtime.lastSnapshot?.contradictions || [],
+      analysisFresh: false,
+      analysisRevision: `${callId}-voice-${Date.now()}`,
+      latencyMs,
+      runtime,
+    });
+    runtime.lastSnapshot = snapshot;
+
+    // --- Persist & Notify ---
+    await Call.findOneAndUpdate(
+      { callId },
+      {
+        callerLanguage: aiResult['detected language'] || languageCode,
+        emergencyType: isClassificationVisible(classification) ? classification.category : (aiResult['emergency type'] || 'UNKNOWN'),
+        callerEmotion: aiResult['caller emotion'] || 'unknown',
+        backgroundSound: aiResult['background context'] || 'unknown',
+        aiBrainUsed: 'NARAYANI CASCADE',
+        aiBrainResponseTime: responseTimeSeconds,
+        severityScore: Math.max(voiceScore, scoreFromSeverity(classification.severity)),
+        severityLabel: severityLabelFromClassification(classification),
+        mlVotes: mlSeverity.votes,
+        callStatus: isClassificationVisible(classification) ? 'ACTIVE' : (voiceScore > 0 ? 'ACTIVE' : 'ASSESSING'),
+        analysisSnapshot: snapshot,
+        visionAnalysis: { grounding: snapshot.grounding, classification: snapshot.classification, analysis: snapshot.analysis, contradictions: snapshot.contradictions }
+      }
+    );
+
+    await appendTranscriptEntry(callId, 'assistant', aiResult.response);
+    
+    if (sessionId) {
+      await Conversation.findOneAndUpdate(
+        { sessionId },
+        { 
+          $push: { messages: { role: 'assistant', content: aiResult.response, languageCode: aiResult['detected language'] || languageCode, llmProvider: 'cascade', responseTimeMs: responseTimeSeconds * 1000, timestamp: new Date() } },
+          $inc: { 'metadata.totalMessages': 1 },
+          $set: { 'metadata.primaryLanguage': aiResult['detected language'] || languageCode }
+        },
+        { upsert: true, new: true }
+      );
+    }
+
+    // --- Send Audio & Updates ---
+    console.log(`[TTS] Generating audio for response...`);
+    const audioBytes = await murfTTS(aiResult.response, aiResult['detected language'] || languageCode);
+    socket.emit('audio_response', { audioBytes, transcript: aiResult.response, language: aiResult['detected language'] || languageCode });
+    
+    io.emit('analysis_snapshot', { callId, snapshot, thumbnail: runtime.latestPreviewFrame || '', capturedAt: new Date().toISOString(), latencyMs });
+    io.emit('combined severity update', { callId, combinedSeverity: Math.max(voiceScore, scoreFromSeverity(classification.severity)), severityLabel: severityLabelFromClassification(classification) });
+    await emitCallMetaUpdate(callId, { analysisSnapshot: snapshot });
+
+  } catch (error) {
+    console.error(`[handleCallerText] CRITICAL ERROR: ${error.message}`);
+    socket.emit('pipeline_error', { error: 'Failed to process voice response' });
   }
-
-  socket.emit('audio_response', { audioBytes: await murfTTS(aiResult.response, aiResult['detected language'] || languageCode), transcript: aiResult.response, language: aiResult['detected language'] || languageCode });
-  io.emit('analysis_snapshot', { callId, snapshot, thumbnail: runtime.latestPreviewFrame || '', capturedAt: new Date().toISOString(), latencyMs });
-  io.emit('combined severity update', { callId, combinedSeverity: Math.max(voiceScore, scoreFromSeverity(classification.severity)), severityLabel: severityLabelFromClassification(classification) });
-  await emitCallMetaUpdate(callId, { analysisSnapshot: snapshot });
 }
 
 async function processVisionFrame(callId, frameDataUrl, frameMeta = {}, options = {}) {

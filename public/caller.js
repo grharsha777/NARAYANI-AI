@@ -586,6 +586,10 @@ function startLocationUpdates() {
   }, LOCATION_INTERVAL_MS);
 }
 
+async function requestLocationAccess() {
+  await updateCallerLocation(true);
+}
+
 async function initCall() {
   const response = await fetch('/api/calls', {
     method: 'POST',

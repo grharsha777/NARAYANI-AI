@@ -278,58 +278,62 @@ async function getMistralResponse(messages) {
 
 // Groq first → Mistral fallback. No Gemini.
 async function attemptProviders(messages) {
+  console.log(`[LLM] Attempting providers... (Groq: ${!!GROQ_API_KEY}, Mistral: ${!!MISTRAL_API_KEY})`);
+  
   if (GROQ_API_KEY) {
     try {
-      return await getGroqResponse(messages);
+      console.log(`[LLM] Trying Groq (${MODELS.groq})...`);
+      const result = await getGroqResponse(messages);
+      console.log(`[LLM] Groq SUCCESS.`);
+      return result;
     } catch (groqError) {
       const isRateLimit = groqError?.response?.status === 429;
       console.warn(`[LLM] Groq ${isRateLimit ? 'RATE LIMITED' : 'FAILED'}: ${groqError.message}`);
+      if (groqError.response) console.warn(`[LLM] Groq Data:`, JSON.stringify(groqError.response.data));
     }
   }
 
   if (MISTRAL_API_KEY) {
     try {
-      return await getMistralResponse(messages);
+      console.log(`[LLM] Trying Mistral (${MODELS.mistral})...`);
+      const result = await getMistralResponse(messages);
+      console.log(`[LLM] Mistral SUCCESS.`);
+      return result;
     } catch (mistralError) {
       console.warn(`[LLM] Mistral FAILED: ${mistralError.message}`);
+      if (mistralError.response) console.warn(`[LLM] Mistral Data:`, JSON.stringify(mistralError.response.data));
     }
   }
 
   throw new Error('All LLM providers exhausted');
 }
 
-// ===== MAIN FUNCTION (with conversation history) =====
-async function getHumanLikeResponse(userMessage, context = {}, conversationHistory = []) {
-  const language = detectLikelyLanguage(userMessage, context.preferredLanguage);
-
-  // Build messages array with conversation history
-  const systemMessage = { role: 'system', content: buildCallerSystemPrompt(context) };
-
-  // Include recent history (last 10 messages max) for context
-  const historyMessages = (conversationHistory || [])
-    .slice(-10)
-    .map(entry => ({
-      role: entry.role === 'caller' || entry.role === 'user' ? 'user' : 'assistant',
-      content: String(entry.content || ''),
-    }))
-    .filter(m => m.content.length > 0);
-
-  const currentMessage = { role: 'user', content: buildUserPayload(userMessage, context) };
-  const messages = [systemMessage, ...historyMessages, currentMessage];
+/**
+ * High-level AI response generator logic.
+ * Input 'message' should be the transcript of the caller's last statement.
+ * context: { groundedSummary, visibleInjuries, environment, callerEmotion, preferredLanguage }
+ */
+async function getHumanLikeResponse(message, context = {}, conversationHistory = []) {
+  const language = detectLikelyLanguage(message, context.preferredLanguage);
+  console.log(`[AI Response] Input language: ${language}, Message: "${message.slice(0, 50)}..."`);
 
   try {
+    // 1. Build conversational history payload
+    const systemPrompt = buildCallerSystemPrompt(context);
+    const messages = [{ role: 'system', content: systemPrompt }];
+    
+    conversationHistory.forEach(msg => {
+      messages.push({ role: msg.role === 'caller' ? 'user' : 'assistant', content: msg.content });
+    });
+    
+    messages.push({ role: 'user', content: buildUserPayload(message, context) });
+
+    // 2. LLM reasoning (Groq -> Mistral)
     const result = await attemptProviders(messages);
     return normalizeModelResult(result, language);
-  } catch (firstError) {
-    console.warn(`[LLM] Primary attempt failed: ${firstError.message}`);
-    // One retry
-    try {
-      const result = await attemptProviders(messages);
-      return normalizeModelResult(result, language);
-    } catch (secondError) {
-      console.error(`[LLM] All retries exhausted: ${secondError.message}`);
-      return buildFallbackResponse(userMessage, language, context);
-    }
+  } catch (error) {
+    console.error(`[LLM] All retries exhausted: ${error.message}`);
+    return buildFallbackResponse(message, context, language);
   }
 }
 
