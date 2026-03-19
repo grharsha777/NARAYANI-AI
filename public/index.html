@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NARAYANI — Emergency Voice AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#ffffff;color:#1e293b;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;position:relative;overflow:hidden}
+    
+    /* Background decorations */
+    .bg-grad{position:fixed;top:0;left:0;width:100%;height:24rem;background:linear-gradient(180deg,#eff6ff 0%,transparent 100%);pointer-events:none;z-index:0}
+    .bg-blob1{position:fixed;top:-6rem;right:-6rem;width:24rem;height:24rem;background:rgba(59,130,246,.06);border-radius:50%;filter:blur(80px);pointer-events:none}
+    .bg-blob2{position:fixed;bottom:-6rem;left:-6rem;width:24rem;height:24rem;background:rgba(20,184,166,.06);border-radius:50%;filter:blur(80px);pointer-events:none}
+    
+    .main{position:relative;z-index:1;text-align:center;max-width:56rem;width:100%}
+    
+    /* Logo */
+    .logo-wrap{display:inline-flex;align-items:center;justify-content:center;padding:0.75rem;background:rgba(59,130,246,.06);border-radius:50%;margin-bottom:1.5rem}
+    .logo-wrap svg{width:2rem;height:2rem;color:#3b82f6}
+    
+    h1{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;letter-spacing:.15em;color:#1e293b;margin-bottom:.25rem}
+    .divider{width:3rem;height:4px;background:#3b82f6;margin:1.25rem auto;border-radius:999px}
+    .subtitle{font-size:1.1rem;color:#64748b;max-width:28rem;margin:0 auto 3rem}
+    
+    /* Cards Grid */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;width:100%}
+    
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:1rem;padding:2.5rem 2rem;text-align:center;transition:all .3s ease;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center}
+    .card:hover{box-shadow:0 20px 40px -12px rgba(0,0,0,.08);transform:translateY(-4px)}
+    .card:first-child:hover{border-color:rgba(59,130,246,.3)}
+    .card:last-child:hover{border-color:rgba(22,163,74,.3)}
+    
+    .icon-circle{width:5rem;height:5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:transform .3s}
+    .card:hover .icon-circle{transform:scale(1.1)}
+    .icon-circle svg{width:2.5rem;height:2.5rem}
+    .ic-blue{background:#eff6ff}
+    .ic-blue svg{color:#3b82f6}
+    .ic-green{background:#f0fdf4}
+    .ic-green svg{color:#16a34a}
+    
+    .card h2{font-size:1.5rem;font-weight:700;margin-bottom:0.75rem}
+    .card p{color:#64748b;font-size:.95rem;line-height:1.6;margin-bottom:2rem;flex:1}
+    
+    .btn{display:block;width:100%;padding:1rem 1.5rem;border:none;border-radius:.75rem;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;text-align:center}
+    .btn-blue{background:#3b82f6;color:#fff;box-shadow:0 8px 24px -4px rgba(59,130,246,.25)}
+    .btn-blue:hover{background:#2563eb;box-shadow:0 12px 32px -4px rgba(59,130,246,.35);transform:translateY(-1px)}
+    .btn-green{background:#16a34a;color:#fff;box-shadow:0 8px 24px -4px rgba(22,163,74,.25)}
+    .btn-green:hover{background:#15803d;box-shadow:0 12px 32px -4px rgba(22,163,74,.35);transform:translateY(-1px)}
+    
+    .footer{position:fixed;bottom:1.5rem;font-size:.8rem;color:#94a3b8;letter-spacing:.1em;text-transform:uppercase}
+    
+    /* Animations */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .main{animation:fadeUp .6s ease}
+    .card:first-child{animation:fadeUp .6s ease .1s both}
+    .card:last-child{animation:fadeUp .6s ease .2s both}
+  </style>
+</head>
+<body>
+  <div class="bg-grad"></div>
+  <div class="bg-blob1"></div>
+  <div class="bg-blob2"></div>
+  
+  <div class="main">
+    <div class="logo-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <h1>NARAYANI</h1>
+    <div class="divider"></div>
+    <p class="subtitle">Enterprise Voice Intelligence System for Emergency Response</p>
+    
+    <div class="cards">
+      <a href="/caller" class="card" id="caller-card">
+        <div class="icon-circle ic-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h2>I Need Help</h2>
+        <p>Experience the voice AI interface from the perspective of someone in an emergency.</p>
+        <span class="btn btn-blue">Open Caller App</span>
+      </a>
+      
+      <a href="/dispatcher" class="card" id="dispatcher-card">
+        <div class="icon-circle ic-green">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h2>Dispatcher</h2>
+        <p>Access the command center to view live telemetry, transcripts, and ML severity scores.</p>
+        <span class="btn btn-green">Open Dashboard</span>
+      </a>
+    </div>
+  </div>
+  
+  <p class="footer">NARAYANI — Built for saving lives at machine speed</p>
+</body>
+</html>

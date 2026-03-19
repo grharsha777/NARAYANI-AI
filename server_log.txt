@@ -1,0 +1,45 @@
+Γ£à MongoDB Atlas connected successfully
+Γ£à First Aid protocols loaded into memory cache
+Γä╣∩╕Å  Redis not available. Using In-Memory/MongoDB fallback (no errors).
+Γ£à Protocols synced with MongoDB
+
+≡ƒÜÇ Narayani Voice AI Server running on http://localhost:3000
+   ≡ƒöî Socket.io: ws://localhost:3000
+   ≡ƒôè Health:    http://localhost:3000/api/health
+   ≡ƒåÿ First-Aid: http://localhost:3000/api/first-aid?type=bleeding&lang=hi
+   ≡ƒºá Severity:  POST http://localhost:3000/api/severity
+   ≡ƒÄÖ∩╕Å  Voice:     POST http://localhost:3000/api/voice/respond
+≡ƒöî Voice Client connected: Yi-JkuopPNfMi9PPAAAB
+[Caller] (en): 
+Murf STT Error: { error_message: 'HTTP 404 Not Found', error_code: 404 }
+[Voice Pipeline] Empty STT transcript (Call call-1773903370026-pqjmqi)
+Attempting GROQ...
+[AI Response] (en): Hello! Is everything okay? You sound a bit concerned. I'm here to help.
+[Caller] (en): 
+Murf STT Error: { error_message: 'HTTP 404 Not Found', error_code: 404 }
+[Voice Pipeline] Empty STT transcript (Call call-1773903370026-pqjmqi)
+Attempting GROQ...
+[AI Response] (en): Hello, I'm here to help. What's wrong?
+≡ƒöî Voice Client connected: chhr8BxjfnQhHsruAAAD
+Murf STT Error: { error_message: 'HTTP 404 Not Found', error_code: 404 }
+[Caller] (en): 
+[Voice Pipeline] Empty STT transcript (Call call-1773903370026-pqjmqi)
+Attempting GROQ...
+[AI Response] (en): Hello, I'm here to help. What's wrong?
+≡ƒöî Voice Client disconnected: chhr8BxjfnQhHsruAAAD
+≡ƒöî Voice Client connected: jHQ1asOZI-vWa7gwAAAF
+≡ƒöî Voice Client disconnected: jHQ1asOZI-vWa7gwAAAF
+≡ƒöî Voice Client connected: tpxdmbPI0153LrU9AAAH
+≡ƒöî Voice Client disconnected: tpxdmbPI0153LrU9AAAH
+≡ƒöî Voice Client disconnected: Yi-JkuopPNfMi9PPAAAB
+≡ƒöî Voice Client connected: egQYDTMrKW31XHP6AAAJ
+≡ƒöî Voice Client connected: Y7uzyzii0uwgKp_uAAAL
+(node:7084) [MONGOOSE] Warning: mongoose: the `new` option for `findOneAndUpdate()` and `findOneAndReplace()` is deprecated. Use `returnDocument: 'after'` instead.
+(Use `node --trace-warnings ...` to show where the warning was created)
+≡ƒöî Voice Client connected: R1TU4uJ38PE-2nQzAAAN
+≡ƒöî Voice Client connected: J9whU30Iq4_Skl6eAAAP
+≡ƒöî Voice Client connected: fD7RZXtBYzpoPWAAAAAR
+≡ƒöî Voice Client disconnected: R1TU4uJ38PE-2nQzAAAN
+≡ƒöî Voice Client connected: nN8SaD3nPG5FD1Z_AAAT
+≡ƒöî Voice Client disconnected: egQYDTMrKW31XHP6AAAJ
+≡ƒöî Voice Client connected: VNbtQ4m16Kv8dSIxAAAV

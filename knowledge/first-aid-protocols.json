@@ -1,0 +1,776 @@
+{
+  "bleeding": {
+    "severity_range": [6, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Take any cloth",
+        "hi": "Kapda lo",
+        "kn": "Baṭṭe tagondi",
+        "ta": "Tuṇi edu",
+        "te": "Baṭṭa teesuko",
+        "bn": "Kapor nao",
+        "mr": "Kapda ghya",
+        "gu": "Kapdu lo",
+        "ml": "Tuni edukku",
+        "pa": "Kapra lo",
+        "visual": "Hand holding cloth"
+      },
+      {
+        "step": 2,
+        "en": "Press hard there",
+        "hi": "Zor se dabaao",
+        "kn": "Joraagi okkoli",
+        "ta": "Jorama aḷuṅku",
+        "te": "గట్టిగా నొక్కు",
+        "bn": "Jore chapo",
+        "mr": "Zor daaba",
+        "gu": "Jor thi dabavo",
+        "ml": "Mudi pidichu aḷukku",
+        "pa": "Zor naal dabao",
+        "visual": "Both hands pressing wound"
+      },
+      {
+        "step": 3,
+        "en": "Do not lift",
+        "hi": "Haath mat uthao",
+        "kn": "Kaiya ettabeda",
+        "ta": "Kaiyai tūkkaadē",
+        "te": "చెయ్యి తీయకు",
+        "bn": "Hat tulo na",
+        "mr": "Hat uchalu naka",
+        "gu": "Hath na uthavo",
+        "ml": "Kai pothikaruthu",
+        "pa": "Hath na chukko",
+        "visual": "Hands staying on wound"
+      },
+      {
+        "step": 4,
+        "en": "Tie cloth above",
+        "hi": "Upar kapda baandho",
+        "kn": "Melage baṭṭe katti",
+        "ta": "Mēlē kaṭṭu",
+        "te": "పైన కట్టు",
+        "bn": "Upore bando",
+        "mr": "Var kapda bandha",
+        "gu": "Upar kapdu bandho",
+        "ml": "Mele ketti vekku",
+        "pa": "Utte kapra bandho",
+        "visual": "Cloth tied above wound"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "turmeric",
+        "en": "Put turmeric now",
+        "hi": "Haldi daalo abhi",
+        "kn": "Arishina haaki",
+        "ta": "Maṇṇaḷ pōdu",
+        "te": "పసుపు వేయి",
+        "bn": "Halud dao",
+        "mr": "Halad ghala",
+        "gu": "Haldar nakho",
+        "ml": "Manjal iduka",
+        "pa": "Haldi pao",
+        "why": "Natural antiseptic. Prevents infection. Found in every Indian kitchen.",
+        "verified": true,
+        "source": "WHO Traditional Medicine Guidelines"
+      },
+      {
+        "remedy": "clean cloth pressure",
+        "en": "Clean cloth only",
+        "hi": "Saaf kapda sirf",
+        "kn": "Shuddha baṭṭe maatra",
+        "ta": "Suththam tuṇi maṭṭum",
+        "why": "Prevents infection at wound site",
+        "verified": true,
+        "source": "Indian Red Cross First Aid Manual"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No ice directly",
+        "hi": "Ice seedha mat",
+        "reason": "Ice causes frostbite on open wound"
+      },
+      {
+        "en": "No removing cloth",
+        "hi": "Kapda mat hatao",
+        "reason": "Removing cloth disturbs clot formation"
+      }
+    ],
+    "paramedic_alert": "Active bleeding. Tourniquet applied. Turmeric antiseptic used.",
+    "estimated_safe_window_minutes": 15
+  },
+  "cardiac": {
+    "severity_range": [8, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Call their name",
+        "hi": "Naam leke bulao",
+        "kn": "Hesaralli keli",
+        "ta": "Peyar solli kūpidu",
+        "visual": "Person leaning over patient calling name"
+      },
+      {
+        "step": 2,
+        "en": "Hands on chest",
+        "hi": "Seene pe haath",
+        "kn": "Eadeyalli kai",
+        "ta": "Maarbil kai vei",
+        "visual": "Both hands stacked on center of chest"
+      },
+      {
+        "step": 3,
+        "en": "Push down hard",
+        "hi": "Neeche dabaao zor",
+        "kn": "Kigade joraagi okkali",
+        "ta": "Kīzhe jōrā tira",
+        "visual": "Arms straight pushing deep"
+      },
+      {
+        "step": 4,
+        "en": "Count with me",
+        "hi": "Mere saath gino",
+        "kn": "Nanottige enni",
+        "ta": "Eṉṉuoṭu eṇṇu",
+        "visual": "Continuous compressions with count"
+      },
+      {
+        "step": 5,
+        "en": "Do not stop",
+        "hi": "Rukna bilkul mat",
+        "kn": "Nillisabeda",
+        "ta": "Nirutti viḍaadē",
+        "visual": "Continuous motion arrow"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "none for cardiac",
+        "en": "No home remedy",
+        "hi": "Koi ghar ilaaj nahi",
+        "why": "Cardiac arrest requires CPR only. No remedy helps. Only compression keeps blood moving.",
+        "verified": true,
+        "source": "American Heart Association BLS Guidelines"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No water in mouth",
+        "hi": "Muh mein paani mat",
+        "reason": "Unconscious person will choke"
+      },
+      {
+        "en": "No slapping face",
+        "hi": "Chehra mat maaro",
+        "reason": "Does nothing for cardiac arrest"
+      },
+      {
+        "en": "No leaving alone",
+        "hi": "Akela mat chodo",
+        "reason": "CPR must continue until help arrives"
+      }
+    ],
+    "paramedic_alert": "CPR in progress. Compressions ongoing. No AED on scene.",
+    "estimated_safe_window_minutes": 4
+  },
+  "choking": {
+    "severity_range": [7, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Go behind them",
+        "hi": "Peechhe jaao",
+        "kn": "Hindugade hogi",
+        "ta": "Pinnāl pō",
+        "visual": "Person standing behind patient"
+      },
+      {
+        "step": 2,
+        "en": "Arms around waist",
+        "hi": "Kamar pe haath",
+        "kn": "Sothina mele kai",
+        "ta": "Iḍuppil kaiyai",
+        "visual": "Arms wrapped around from behind"
+      },
+      {
+        "step": 3,
+        "en": "Fist above navel",
+        "hi": "Nabi ke upar mutthi",
+        "kn": "Naabi mele mutthi",
+        "ta": "Toppuḷ mēlē muṭṭi",
+        "visual": "Fist positioned correctly"
+      },
+      {
+        "step": 4,
+        "en": "Pull inward up",
+        "hi": "Andar upar kheencho",
+        "kn": "Olage uppar iḍi",
+        "ta": "Uḷḷē mēlē iḻu",
+        "visual": "Sharp upward inward thrust"
+      },
+      {
+        "step": 5,
+        "en": "Again and again",
+        "hi": "Baar baar karo",
+        "kn": "Matte matte madi",
+        "ta": "Māṟi māṟi ceyyum",
+        "visual": "Repeated motion arrows"
+      }
+    ],
+    "infant_steps": [
+      {
+        "step": 1,
+        "en": "Face down arm",
+        "hi": "Muh neeche haath pe",
+        "kn": "Mukha kigade kaiyalli",
+        "ta": "Mukam kīzē kaiyil",
+        "visual": "Baby face down on forearm"
+      },
+      {
+        "step": 2,
+        "en": "Five back blows",
+        "hi": "Peeth pe paanch maar",
+        "kn": "Belakige aidu hodi",
+        "ta": "Mutu mel aintu adi",
+        "visual": "Heel of hand striking back"
+      },
+      {
+        "step": 3,
+        "en": "Flip face up",
+        "hi": "Ulta kar do",
+        "kn": "Thirugisi mele",
+        "ta": "Thiruppi mēlē",
+        "visual": "Baby flipped carefully"
+      },
+      {
+        "step": 4,
+        "en": "Two finger push",
+        "hi": "Do ungli dabaao",
+        "kn": "Yeradu beral okkali",
+        "ta": "Iraṇḍu viralāl",
+        "visual": "Two fingers on infant chest"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "back blows adult",
+        "en": "Five hard back blows",
+        "hi": "Peeth pe paanch thappad",
+        "why": "Dislodges object through vibration",
+        "verified": true,
+        "source": "Indian Red Cross"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No water to drink",
+        "hi": "Paani mat pilao",
+        "reason": "Worsens choking"
+      },
+      {
+        "en": "No finger blind sweep",
+        "hi": "Andhey hath mat daalo",
+        "reason": "Can push object deeper"
+      }
+    ],
+    "paramedic_alert": "Choking patient. Heimlich applied X times. Partial or full obstruction.",
+    "estimated_safe_window_minutes": 3
+  },
+  "burns": {
+    "severity_range": [4, 9],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Cool water only",
+        "hi": "Sirf thanda paani",
+        "kn": "Tanda nīru maatra",
+        "ta": "Taṇṇīr maṭṭum",
+        "visual": "Water running over burn"
+      },
+      {
+        "step": 2,
+        "en": "Ten full minutes",
+        "hi": "Das poore minute",
+        "kn": "Hatthu nimisha poorna",
+        "ta": "Pattu nimiḍam muḻuvatum",
+        "visual": "Clock showing 10 minutes"
+      },
+      {
+        "step": 3,
+        "en": "Cover loosely only",
+        "hi": "Dheele se dhakna",
+        "kn": "Sulabhaagi muttisu",
+        "ta": "Tharavaaga mooduvidu",
+        "visual": "Loose cloth over burn"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "aloe vera",
+        "en": "Aloe vera gel",
+        "hi": "Ghritkumari lagao",
+        "kn": "Lolisara hachi",
+        "ta": "Katrazhai thadavu",
+        "why": "Cooling anti-inflammatory. Found in most Indian homes and gardens.",
+        "verified": true,
+        "source": "Journal of Traditional and Complementary Medicine",
+        "when_to_use": "Only after 10 minutes of cool water. Only for minor burns. Not for deep burns."
+      },
+      {
+        "remedy": "honey",
+        "en": "Pure honey apply",
+        "hi": "Shuddh shahad lagao",
+        "kn": "Shuddha thene hachi",
+        "ta": "Thēṉ thadavu",
+        "why": "Natural antibacterial. Prevents infection on minor burns.",
+        "verified": true,
+        "source": "Cochrane Database of Systematic Reviews",
+        "when_to_use": "Only minor burns after cooling. Never on face or deep burns."
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No ice ever",
+        "hi": "Ice bilkul nahi",
+        "reason": "Ice causes deeper tissue damage"
+      },
+      {
+        "en": "No toothpaste",
+        "hi": "Toothpaste bilkul nahi",
+        "reason": "Causes infection and worsens burn"
+      },
+      {
+        "en": "No butter oil",
+        "hi": "Ghee tel nahi",
+        "reason": "Traps heat and causes deeper burn"
+      },
+      {
+        "en": "No breaking blisters",
+        "hi": "Phoda mat phodo",
+        "reason": "Opens wound to infection"
+      }
+    ],
+    "paramedic_alert": "Burn injury. Cool water applied. Aloe or honey used. Estimated burn area and depth unknown.",
+    "estimated_safe_window_minutes": 30
+  },
+  "snakebite": {
+    "severity_range": [7, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Do not move",
+        "hi": "Bilkul mat hilo",
+        "kn": "Asadirubeda",
+        "ta": "Aḷaḷādīr",
+        "visual": "Person lying completely still"
+      },
+      {
+        "step": 2,
+        "en": "Lie down flat",
+        "hi": "Seedha lait jao",
+        "kn": "Nudige malkoli",
+        "ta": "Neraaga paḍu",
+        "visual": "Person flat on ground"
+      },
+      {
+        "step": 3,
+        "en": "Remove rings now",
+        "hi": "Angoothi nikaal abhi",
+        "kn": "Usthige tegeyri",
+        "ta": "Mothiram kaḷai ippōdē",
+        "visual": "Removing jewelry from bitten limb"
+      },
+      {
+        "step": 4,
+        "en": "Mark swelling edge",
+        "hi": "Sujan ki rekha kheecho",
+        "kn": "Ūta geredu gurtisii",
+        "ta": "Vīkka ellai kuṟi",
+        "visual": "Drawing line around swelling with pen"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "immobilization only",
+        "en": "Keep completely still",
+        "hi": "Bilkul sthir raho",
+        "why": "Movement pumps venom faster through lymph system. Stillness is the only effective home measure.",
+        "verified": true,
+        "source": "WHO Guidelines for the Management of Snakebite"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No cutting wound",
+        "hi": "Kaatna bilkul nahi",
+        "reason": "Causes more tissue damage and infection"
+      },
+      {
+        "en": "No sucking venom",
+        "hi": "Zeher mat choosna",
+        "reason": "Ineffective and dangerous to helper"
+      },
+      {
+        "en": "No tourniquet here",
+        "hi": "Bandhan mat baandho",
+        "reason": "Worsens tissue damage in snakebite"
+      },
+      {
+        "en": "No ice on bite",
+        "hi": "Daank pe ice nahi",
+        "reason": "Causes additional tissue damage"
+      },
+      {
+        "en": "No drinking anything",
+        "hi": "Kuch mat piyo",
+        "reason": "Alcohol and stimulants speed venom absorption"
+      }
+    ],
+    "paramedic_alert": "Snakebite. Patient immobilized. Jewelry removed. Swelling marked. Snake description if available.",
+    "estimated_safe_window_minutes": 20
+  },
+  "unconscious": {
+    "severity_range": [7, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Call their name",
+        "hi": "Naam leke bulao",
+        "kn": "Hesaralli keli",
+        "ta": "Peyar solli kūpidu",
+        "visual": "Person calling name loudly"
+      },
+      {
+        "step": 2,
+        "en": "Turn on side",
+        "hi": "Karwat dilao",
+        "kn": "Adakkade madagisu",
+        "ta": "Pakkam tiruppu",
+        "visual": "Recovery position on side"
+      },
+      {
+        "step": 3,
+        "en": "Head slightly back",
+        "hi": "Sar thoda peeche",
+        "kn": "Tale hinde tiri",
+        "ta": "Talai piṉ tiruppu",
+        "visual": "Airway opened with head tilt"
+      },
+      {
+        "step": 4,
+        "en": "Keep mouth down",
+        "hi": "Muh neeche rakho",
+        "kn": "Baay kigade irali",
+        "ta": "Vaai kīzē irattum",
+        "visual": "Mouth facing downward to drain"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "recovery position",
+        "en": "Side position only",
+        "hi": "Sirf karwat position",
+        "why": "Prevents airway obstruction from vomit. Single most effective home measure for unconscious person.",
+        "verified": true,
+        "source": "European Resuscitation Council Guidelines"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No water in mouth",
+        "hi": "Muh mein paani nahi",
+        "reason": "Will cause choking and aspiration"
+      },
+      {
+        "en": "No leaving alone",
+        "hi": "Akela mat chodo",
+        "reason": "Condition can change rapidly"
+      },
+      {
+        "en": "No shaking them",
+        "hi": "Hilao jhakao mat",
+        "reason": "Can worsen spinal or head injury"
+      }
+    ],
+    "paramedic_alert": "Unconscious patient. Recovery position maintained. Breathing status monitored.",
+    "estimated_safe_window_minutes": 8
+  },
+  "fracture": {
+    "severity_range": [4, 7],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Do not move it",
+        "hi": "Hilao bilkul mat",
+        "kn": "Asadirisi",
+        "ta": "Aḷaḷādīr",
+        "visual": "Broken limb kept still"
+      },
+      {
+        "step": 2,
+        "en": "Find straight thing",
+        "hi": "Seedhi cheez lao",
+        "kn": "Neraada vastu taa",
+        "ta": "Nerāna porul edu",
+        "visual": "Stick book umbrella as splint"
+      },
+      {
+        "step": 3,
+        "en": "Place alongside it",
+        "hi": "Saath mein rakh do",
+        "kn": "Pakkadalli irisii",
+        "ta": "Paḵkattil vei",
+        "visual": "Splint next to broken limb"
+      },
+      {
+        "step": 4,
+        "en": "Tie with cloth",
+        "hi": "Kapde se baandh do",
+        "kn": "Baṭṭedinda katti",
+        "ta": "Tuṇiyāl kaṭṭu",
+        "visual": "Cloth tied above and below break"
+      },
+      {
+        "step": 5,
+        "en": "Raise it up",
+        "hi": "Thoda upar uthao",
+        "kn": "Swalpa uppar etto",
+        "ta": "Kōṇam tūkku",
+        "visual": "Limb elevated above heart level"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "ice pack wrapped",
+        "en": "Cold cloth on it",
+        "hi": "Thanda kapda uspe",
+        "kn": "Tanda baṭṭe hako",
+        "ta": "Taṇṇiya tuṇi vei",
+        "why": "Reduces swelling and pain around fracture.",
+        "verified": true,
+        "source": "St John Ambulance First Aid Manual",
+        "when_to_use": "Wrapped in cloth — never ice directly on skin"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No straightening bone",
+        "hi": "Haddi seedhi mat karo",
+        "reason": "Causes more damage and severe pain"
+      },
+      {
+        "en": "No tight bandage",
+        "hi": "Zyada tight mat baandho",
+        "reason": "Cuts blood supply to limb"
+      }
+    ],
+    "paramedic_alert": "Suspected fracture. Limb immobilized with improvised splint. Elevated. No reduction attempted.",
+    "estimated_safe_window_minutes": 45
+  },
+  "fever_convulsion": {
+    "severity_range": [6, 9],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Do not hold",
+        "hi": "Pakdo bilkul mat",
+        "kn": "Hidiyabeda",
+        "ta": "Pidikaadē",
+        "visual": "Hands open not restraining"
+      },
+      {
+        "step": 2,
+        "en": "Clear the area",
+        "hi": "Aaspaas saaf karo",
+        "kn": "Aaspaas khaali maadi",
+        "ta": "Suttrum aḻittu vidu",
+        "visual": "Objects moved away"
+      },
+      {
+        "step": 3,
+        "en": "Soft under head",
+        "hi": "Sar neeche naram",
+        "kn": "Tale kigade mettagi",
+        "ta": "Talaikku mēlāna poru",
+        "visual": "Pillow cloth under head"
+      },
+      {
+        "step": 4,
+        "en": "Turn on side",
+        "hi": "Karwat mein karo",
+        "kn": "Adakkade hako",
+        "ta": "Pakkam tiruppu",
+        "visual": "Child on side recovery position"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "wet cloth forehead",
+        "en": "Wet cloth forehead",
+        "hi": "Mathe pe gila kapda",
+        "kn": "Neeru kapda hane mele",
+        "ta": "Neera tuṇi muṉ nettiyil",
+        "why": "Reduces body temperature. Available in every home.",
+        "verified": true,
+        "source": "Indian Academy of Pediatrics Guidelines"
+      },
+      {
+        "remedy": "wet cloth armpits",
+        "en": "Wet cloth armpits",
+        "hi": "Kaanch pe bhi gila kapda",
+        "kn": "Kaṅkaḷadallū nīru kapda",
+        "ta": "Kaḷḷattilum neer tuṇi",
+        "why": "Cools major blood vessels. Reduces fever faster.",
+        "verified": true,
+        "source": "WHO Fever Management Guidelines"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No medicine during fit",
+        "hi": "Daure mein dawai nahi",
+        "reason": "Cannot swallow safely during convulsion"
+      },
+      {
+        "en": "No water during fit",
+        "hi": "Daure mein paani nahi",
+        "reason": "Will cause choking"
+      },
+      {
+        "en": "No holding down",
+        "hi": "Dabaao mat",
+        "reason": "Causes injury to joints and muscles"
+      }
+    ],
+    "paramedic_alert": "Febrile convulsion. Duration timed. Cooling measures applied. Child semi-conscious post-ictal.",
+    "estimated_safe_window_minutes": 10
+  },
+  "poisoning": {
+    "severity_range": [6, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Keep them awake",
+        "hi": "Jaag ke rakhna",
+        "kn": "Edeyirisi",
+        "ta": "Viḻippu aḷikku",
+        "visual": "Person talking to patient"
+      },
+      {
+        "step": 2,
+        "en": "Find the bottle",
+        "hi": "Dabbi dhoondho",
+        "kn": "Baatle tilige",
+        "ta": "Kuḷuppi edu",
+        "visual": "Picking up medicine bottle"
+      },
+      {
+        "step": 3,
+        "en": "Read what it says",
+        "hi": "Kya likha hai padho",
+        "kn": "Enu baredide odi",
+        "ta": "Enna eḻutiyirukku paḍi",
+        "visual": "Reading label on bottle"
+      },
+      {
+        "step": 4,
+        "en": "Tell me name",
+        "hi": "Naam batao mujhe",
+        "kn": "Hesaru heli",
+        "ta": "Peyar sōlu",
+        "visual": "Speaking to phone"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "milk for chemical burn",
+        "en": "Milk if acid swallowed",
+        "hi": "Tezaab pe doodh piyo",
+        "why": "Neutralizes acid partially. Only for acid ingestion. Not for other poisons.",
+        "verified": true,
+        "source": "Poison Control Center of India Guidelines",
+        "when_to_use": "ONLY if acid or alkali was swallowed and patient is fully conscious"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "Never induce vomiting",
+        "hi": "Ulti bilkul mat karao",
+        "reason": "Vomiting acid or alkali burns throat again coming up"
+      },
+      {
+        "en": "No food or water",
+        "hi": "Kuch bhi mat khilao",
+        "reason": "May interact with poison or cause aspiration"
+      }
+    ],
+    "paramedic_alert": "Suspected poisoning. Substance identified if possible. No vomiting induced. Patient conscious or unconscious noted.",
+    "estimated_safe_window_minutes": 15
+  },
+  "drowning": {
+    "severity_range": [8, 10],
+    "immediate_steps": [
+      {
+        "step": 1,
+        "en": "Get them out",
+        "hi": "Bahar nikalo",
+        "kn": "Horage tageyri",
+        "ta": "Vēliyē eduṅgaḷ",
+        "visual": "Pulling person from water"
+      },
+      {
+        "step": 2,
+        "en": "Turn on side",
+        "hi": "Karwat dilao",
+        "kn": "Adakkade hako",
+        "ta": "Pakkam tiruppu",
+        "visual": "Recovery position immediately"
+      },
+      {
+        "step": 3,
+        "en": "Is breathing check",
+        "hi": "Saans dekho abhi",
+        "kn": "Ushiraasuta nodii",
+        "ta": "Mooccu irukkā pāru",
+        "visual": "Cheek near mouth feeling for air"
+      },
+      {
+        "step": 4,
+        "en": "Start CPR now",
+        "hi": "CPR shuru karo",
+        "kn": "CPR shuru maadi",
+        "ta": "CPR ippōdē tōdaṅgu",
+        "visual": "Chest compressions beginning"
+      }
+    ],
+    "home_remedies": [
+      {
+        "remedy": "warmth",
+        "en": "Cover keep warm",
+        "hi": "Dhakna garam rakhna",
+        "kn": "Huduki belegagi irisi",
+        "ta": "Mūdi sūḍāka vei",
+        "why": "Near-drowning causes rapid heat loss. Warmth prevents secondary shock.",
+        "verified": true,
+        "source": "International Liaison Committee on Resuscitation"
+      }
+    ],
+    "what_not_to_do": [
+      {
+        "en": "No holding upside down",
+        "hi": "Ulta mat pakdo",
+        "reason": "Completely ineffective and wastes time"
+      },
+      {
+        "en": "No stomach pressing",
+        "hi": "Pet mat dabaao",
+        "reason": "Does not remove water from lungs"
+      }
+    ],
+    "paramedic_alert": "Near drowning. Removed from water. CPR in progress or breathing restored. Hypothermia risk.",
+    "estimated_safe_window_minutes": 4
+  }
+}

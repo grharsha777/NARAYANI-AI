@@ -1,0 +1,98 @@
+≡ƒÜÇ Starting Advanced ML Model Evaluation (v3 Engine)
+
+================================================================================
+PASS: Anaphylaxis (Critical)
+PASS: Major Trauma/Fire (Critical)
+PASS: Cardiac/Stroke (Critical)
+PASS: Compound Fracture (High)
+PASS: Severe Illness (Medium)
+PASS: Minor Cut (Low)
+PASS: Non-Medical Stress (Low/Edge)
+PASS: Quiet/Silent Emergency (Critical)
+PASS: Child/Infant Emergency (Critical)
+PASS: Multiple Injuries/Serious (Critical)
+
+================================================================================
+
+≡ƒôè FINAL EVALUATION REPORT (v3)
+
+[ANAPHYLAXIS (CRITICAL)]
+Transcript: "HELP! My son stopped breathing after eating a peanut. He is turning blue!"
+Final Decision: CRITICAL (Score: 10)
+Confidence:     78.0%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        541ms
+----------------------------------------
+[MAJOR TRAUMA/FIRE (CRITICAL)]
+Transcript: "There is a massive crash on the highway. A car is on fire and someone is trapped inside bleeding heavily."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     74.1%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        424ms
+----------------------------------------
+[CARDIAC/STROKE (CRITICAL)]
+Transcript: "My wife is having chest pain and her left arm is numb. She can't speak properly."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     71.1%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        393ms
+----------------------------------------
+[COMPOUND FRACTURE (HIGH)]
+Transcript: "I fell off a ladder and my leg is definitely broken. I can see the bone. Please hurry."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     73.9%
+Agreement:      ΓÜá∩╕Å DISAGREEMENT
+Votes:          RF: high, XGB: critical, LGBM: critical
+Latency:        370ms
+----------------------------------------
+[SEVERE ILLNESS (MEDIUM)]
+Transcript: "I have a high fever for three days and a very bad cough. I am alone and feeling weak."
+Final Decision: MEDIUM (Score: 5)
+Confidence:     61.6%
+Agreement:      ΓÜá∩╕Å DISAGREEMENT
+Votes:          RF: medium, XGB: medium, LGBM: critical
+Latency:        370ms
+----------------------------------------
+[MINOR CUT (LOW)]
+Transcript: "I cut my finger while chopping vegetables. It's bleeding a little but I've washed it. Just wondering what to do next."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     53.5%
+Agreement:      ΓÜá∩╕Å DISAGREEMENT
+Votes:          RF: low, XGB: critical, LGBM: critical
+Latency:        395ms
+----------------------------------------
+[NON-MEDICAL STRESS (LOW/EDGE)]
+Transcript: "Hey, I lost my keys and I'm really stressed out. Can you tell me what to do?"
+Final Decision: LOW (Score: 2)
+Confidence:     51.2%
+Agreement:      ΓÜá∩╕Å DISAGREEMENT
+Votes:          RF: low, XGB: critical, LGBM: low
+Latency:        378ms
+----------------------------------------
+[QUIET/SILENT EMERGENCY (CRITICAL)]
+Transcript: "I... can't... breathe... please... help..."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     90.1%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        398ms
+----------------------------------------
+[CHILD/INFANT EMERGENCY (CRITICAL)]
+Transcript: "My baby is not moving and his skin is cold. He was sleeping but won't wake up."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     87.8%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        387ms
+----------------------------------------
+[MULTIPLE INJURIES/SERIOUS (CRITICAL)]
+Transcript: "A gas cylinder exploded. Multiple people are burned and one person is not moving."
+Final Decision: CRITICAL (Score: 10)
+Confidence:     88.5%
+Agreement:      Γ£à ALL MODELS AGREED
+Votes:          RF: critical, XGB: critical, LGBM: critical
+Latency:        381ms
+----------------------------------------
