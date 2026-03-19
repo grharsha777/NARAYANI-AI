@@ -128,12 +128,42 @@ node server.js
 
 ---
 
+## 🚀 Deployment (Production)
+
+**CRITICAL NOTE ON HOSTING:**
+Because Narayani relies heavily on **WebSockets (Socket.io)** for real-time 60fps video streaming and live audio transcription, **it CANNOT be deployed on Serverless platforms like Vercel or Netlify.** Serverless functions immediately close persistent real-time connections.
+
+You **MUST** deploy this on a platform that supports persistent Node.js servers. We recommend **Render.com** (it has a great free tier for Hackathons).
+
+### How to deploy on Render (Free & Fast)
+1. Go to [Render.com](https://render.com/) and create a free account.
+2. Click **New +** -> **Web Service**.
+3. Connect your GitHub repository (`NARAYANI-AI`).
+4. Configure the service:
+   - **Environment:** Node
+   - **Build Command:** `npm install`
+   - **Start Command:** `node server.js`
+5. Click **Advanced** and add your **Environment Variables**:
+   - `MURF_API_KEY`=your_key
+   - `GROQ_API_KEY`=your_key
+   - `MISTRAL_API_KEY`=your_key
+   - `MONGODB_URI`=mongodb+srv://...
+6. Click **Create Web Service**. 
+
+Within 2 minutes, your AI will be live with full real-time video/voice support!
+
+---
+
 ## 🛡️ Production & Enterprise Readiness
 
 - **Resilience**: The LLM pipeline uses an automatic cascade. If the primary provider (Groq) is rate-limited (HTTP 429) or fails, the system instantly and invisibly falls back to Mistral.
 - **Graceful Degradation**: If Redis fails, the system safely falls back to single-node memory mapping. If MongoDB is slow, critical real-time features continue to operate via Socket.io.
 - **Resource Optimization**: GPU-accelerated CSS `will-change` properties and optimal `100ms` frame-sampling rates ensure the dispatcher dashboard runs smoothly at 60fps without causing browser memory leaks.
 - **Data Security**: All API keys are strictly managed server-side. No sensitive tokens are exposed to the browser client.
+
+
+
+By G R Harsha
 
 ---
 *Built to save lives, one call at a time.*
